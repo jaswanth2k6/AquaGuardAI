@@ -1,0 +1,3 @@
+namespace AquaGuardAI.Models;
+public class WaterSample { public string Location{get;set;}="Zone 04"; public double Ph{get;set;}=7.2; public double Turbidity{get;set;}=6.2; public double Tds{get;set;}=620; public double Temperature{get;set;}=32; public double Chlorine{get;set;}=.1; public int ReportedCases{get;set;}=12; }
+public record PredictionResult(int Score,string Level,string[] Factors,string Recommendation);

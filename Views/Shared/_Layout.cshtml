@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@ViewData["Title"] · AquaGuard AI</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="~/css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar" id="sidebar">
+
+        <a class="brand" href="/Home/Index">
+            <b>A</b>
+            <span>
+                AQUAGUARD
+                <small>COMMUNITY INTELLIGENCE</small>
+            </span>
+        </a>
+
+        <label>COMMAND</label>
+
+        <a href="/Home/Index">▦ <span>Overview</span></a>
+        <a href="/Home/Map">◎ <span>Live risk map</span></a>
+        <a href="/Home/Monitoring">◉ <span>Water monitoring</span></a>
+        <a href="/Home/Predict">⌁ <span>Risk prediction lab</span></a>
+        <a href="/Home/Disease">✚ <span>Disease intelligence</span></a>
+
+        <label>RESPONSE</label>
+
+        <a href="/Home/Alerts">♧ <span>Alert centre</span><i>3</i></a>
+        <a href="/Home/Reports">▤ <span>Reports studio</span></a>
+        <a href="/Home/Awareness">✳ <span>Awareness hub</span></a>
+
+        <div class="sidefoot">
+            <i></i>
+            <span>
+                System operational
+                <small>Academic demo · v2.1</small>
+            </span>
+        </div>
+
+    </aside>
+
+<main>
+<header><button class="mobile-menu" type="button" onclick="toggleNav()" aria-label="Toggle navigation">☰</button><div><small>PUBLIC HEALTH INTELLIGENCE / INDIA</small><h1>@ViewData["Title"]</h1></div><div class="status"><i></i> DEMO MONITORING <b>AG</b></div></header>
+@RenderBody()
+<footer>AquaGuard AI · Academic prototype <span>Synthetic demonstration data · Not a medical diagnostic system</span></footer>
+</main>
+<script src="~/js/site.js"></script>
+</body></html>

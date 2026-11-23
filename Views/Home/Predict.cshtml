@@ -1,0 +1,11 @@
+@using AquaGuardAI.Models
+@{
+    ViewData["Title"] = "AI prediction lab"; var s = ViewBag.Sample as WaterSample ?? new WaterSample(); var r = ViewBag.Result as PredictionResult;
+}
+<section class="intro"><div><small>AQUAGUARD ANALYTICS ENGINE</small><h2>Assess community risk signals.</h2><p>Enter a sample and review the transparent illustrative scoring output.</p></div><span class="chip">RULE-BASED DEMO</span></section><section class="panel"><form asp-action="Predict" method="post">@Html.AntiForgeryToken()<div class="map-toolbar"><input name="Location" value="@s.Location" placeholder="Monitoring location" required /><input name="Ph" type="number" step=".1" value="@s.Ph" placeholder="pH" required /><input name="Turbidity" type="number" step=".1" value="@s.Turbidity" placeholder="Turbidity NTU" required /><input name="Tds" type="number" value="@s.Tds" placeholder="TDS mg/L" required /><input name="Temperature" type="number" step=".1" value="@s.Temperature" placeholder="Temperature °C" required /><input name="Chlorine" type="number" step=".01" value="@s.Chlorine" placeholder="Chlorine mg/L" required /><input name="ReportedCases" type="number" value="@s.ReportedCases" placeholder="Reported symptom cases" required /></div><button class="button" type="submit">Run risk analysis ↗</button></form>@if(r!=null){
+<div class="zone-metric"><small>ILLUSTRATIVE RISK SCORE</small><b>@r.Score / 100 · @r.Level risk</b></div><h3>Contributing signals</h3><ul>@foreach(var x in r.Factors){
+<li>@x</li>
+}
+</ul><p class="bodycopy">@r.Recommendation</p>
+}
+</section><div class="notice">This is an educational rule-based score, not trained machine learning, a diagnosis or a validated outbreak forecast.</div>
